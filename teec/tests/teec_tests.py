@@ -4,7 +4,7 @@ import sys
 
 import pytest
 
-from tee import suppressed, suppressed_recursive, open_files, tee_command
+from teec.teec import suppressed, suppressed_recursive, open_files, tee_command
 
 
 class check_call_times:
@@ -116,9 +116,9 @@ def test_not_suppressed_io_error_recursive():
 
 
 def test_open_files(tmpdir):
-    message = "Work"
-    file_first = "{}/first.txt".format(tmpdir)
-    file_second = "{}/second.txt".format(tmpdir)
+    message = "test"
+    file_first = "{}/first".format(tmpdir)
+    file_second = "{}/second".format(tmpdir)
     with open_files([file_first, file_second], "w") as handles:
         for handle in handles:
             handle.write(message)

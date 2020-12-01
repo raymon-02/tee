@@ -1,17 +1,25 @@
-# tee
-#### Implementation of tee command in command-line interpreter
+# utils
+### Repository with command-line utils 
 
-Requirements:
-* [python](https://www.python.org/downloads/)(version > 3.0) must be installed and added to PATH
-* [pip](https://pip.pypa.io/en/stable/installing/) must be installed and added to PATH
+#### List of utils:
+* **grep_log** &#8722; multi-pattern _grep_ with aho-corasick search
+* **teec** &#8722; implementation of _tee_ command 
 
-Run:
-* give exec permission to `build.sh` (`chmod +x ./build.sh`)
-* run `./build.sh`
-* run `./tee.sh [-a] [-i] [File...]`
-* to get `help` run `./tee.sh --help`
+#### Requirements:
+* [python3](https://www.python.org/downloads/) >= 3.7 must be installed and added to PATH
+* [pip3](https://pip.pypa.io/en/stable/installing/) >= 3.0 must be installed and added to PATH
 
-Run tests:
-* give exec permission to `build.sh` (`chmod +x ./build.sh`)
-* run `./build.sh --test`
-* run `./teeTests.sh`
+#### Setup:
+Setup script builds and installs python package with specified util
+ 
+To setup util run 
+```
+./setup.sh <util_name>
+
+# e.g.
+./setup.sh grep_log
+./setup.sh teec
+```
+
+Each util has `bin` folder with console script. Add this script to PATH  
+E.g `grep_log` util has `grep_log` console script

@@ -39,7 +39,7 @@ def open_files(files, mode):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="tee command")
+    parser = argparse.ArgumentParser(description="teec command")
     parser.add_argument("-i", dest="keyboard_interrupt", const=KeyboardInterrupt, default=None, action="store_const",
                         help="disable interruption")
     parser.add_argument("-a", dest="mode", const="a", default="w", action="store_const",
@@ -54,7 +54,7 @@ def tee_command(files=None, mode="w", keyboard_interrupt=None):
     files = files or []
 
     @suppressed_recursive(keyboard_interrupt)
-    def tee_write_output(handles):
+    def tee_write_output():
         for line in sys.stdin:
             print(line, end="")
             for handle in handles:
@@ -62,7 +62,7 @@ def tee_command(files=None, mode="w", keyboard_interrupt=None):
                 handle.flush()
 
     with open_files(files, mode) as handles:
-        tee_write_output(handles)
+        tee_write_output()
 
 
 def main():
@@ -72,6 +72,4 @@ def main():
     keyboard_interrupt = args.keyboard_interrupt
     tee_command(files, mode, keyboard_interrupt)
 
-
-if __name__ == '__main__':
-    main()
+    return 0  # success
