@@ -94,6 +94,7 @@ wheels/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+Library/
 
 # Unit test / coverage reports
 htmlcov/
